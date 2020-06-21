@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# (A short description about this script)
+# GitHub File Downloader
 #
 #/ Usage:
 #/   ./git-dl.sh [-r] <url>
@@ -89,23 +89,28 @@ get_page() {
 
 get_file() {
     # $1: file or directory URL
-    local type pre post path
-    pre=$(awk -F '/'  '{printf "/%s/%s", $2, $3}' <<< "$1")
+    local type path
     type=$(awk -F '/'  '{print $4}' <<< "$1")
 
     if [[ "$type" == "blob" ]]; then
-        local link fpath
+        local pre post flink fpath upath
+        pre=$(awk -F '/'  '{printf "%s/%s", $2, $3}' <<< "$1")
         post=$(awk -F '/blob/'  '{print $2}' <<< "$1")
-        link="${_GITHUB_URL}/${pre}/raw/${post}"
+        flink="${_GITHUB_URL}/${pre}/raw/${post}"
         fpath="$_SCRIPT_PATH/${post#*/}"
-        path="$(dirname "$fpath")"
-        mkdir -p "$path"
-        print_info "Downloading $link"
-        $_WGET -q -P "$path" "$link"
+        upath="$(dirname "$(get_path_from_url "$_URL")")/"
+
+        if [[ ! "$upath" =~ ^\. ]]; then
+            path="$(dirname "$fpath" | sed -E 's:'"$upath"'::')"
+        else
+            path="$fpath"
+        fi
+
+        print_info "Downloading $flink"
+        $_WGET -q -P "$path" "$flink"
     elif [[  "$type" == "tree" ]]; then
         if [[ "$_RECURSIVE_MODE" == true ]]; then
-            post=$(awk -F '/tree/'  '{print $2}' <<< "$1")
-            path="$_SCRIPT_PATH/${post#*/}"
+            path="$_SCRIPT_PATH/$(get_path_from_url "$1")"
             download_content "$_GITHUB_URL/$1" "$path"
         else
             print_info "Skip directory $1"
@@ -118,10 +123,18 @@ get_file() {
 list_content() {
     # $1: GitHub URL
     get_page "$1" \
-        | grep span  \
+        | grep span \
+        | grep js-navigation-open \
         | grep id= \
         | sed -E 's/.*href="//' \
         | awk -F '">' '{print $1}'
+}
+
+get_path_from_url() {
+    # $1: GitHub URL
+    local p
+    p=$(awk -F '/tree/'  '{print $2}' <<< "$1")
+    echo "${p#*/}"
 }
 
 download_content(){
