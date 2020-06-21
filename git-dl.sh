@@ -107,7 +107,7 @@ get_file() {
         fi
 
         print_info "Downloading $flink"
-        $_WGET -q -P "$path" "$flink"
+        $_WGET -q -P "$path" "$flink" || print_warn "Error occurs when downloading $flink"
     elif [[  "$type" == "tree" ]]; then
         if [[ "$_RECURSIVE_MODE" == true ]]; then
             path="$_SCRIPT_PATH/$(get_path_from_url "$1")"
