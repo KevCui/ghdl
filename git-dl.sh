@@ -53,7 +53,6 @@ print_info() {
     printf "%b\n" "\033[32m[INFO]\033[0m $1" >&2
 }
 
-
 print_warn() {
     # $1: warning message
     printf "%b\n" "\033[33m[WARNING]\033[0m $1" >&2
@@ -74,7 +73,6 @@ command_not_found() {
         print_error "$1 command not found!"
     fi
 }
-
 
 check_var() {
     if [[ -z "${_URL:-}" ]]; then
