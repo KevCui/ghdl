@@ -63,9 +63,9 @@ Directory%20Traversal
     └── README.md
 ```
 
-## When you need git-dl.sh, or not?
+## When you need git-dl.sh, when not?
 
-| Use case                                           | Solution                                          |
+| Use case                                           | Option                                            |
 | -------------------------------------------------- | ------------------------------------------------- |
 | Download entire GitHub repository                  | `git clone --depth 1 <repo_url>`                  |
 | Download crazy numerous files in a specific folder | [DownGit](https://github.com/MinhasKamal/DownGit) |
