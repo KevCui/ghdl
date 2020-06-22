@@ -5,7 +5,7 @@
 ## Features
 
 - Lightweight single-script downloader
-- Minimum dependency, powered by `curl` and `wget`
+- Minimum dependency, powered by `curl`
 - Support recursive download
 
 ## Usage

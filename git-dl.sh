@@ -24,7 +24,6 @@ set_var() {
 
 set_command() {
     _CURL="$(command -v curl)" || command_not_found "curl" "https://curl.haxx.se/download.html"
-    _WGET="$(command -v wget)" || command_not_found "wget" "https://ftp.gnu.org/gnu/wget/"
 }
 
 set_args() {
@@ -82,7 +81,7 @@ check_var() {
 
 get_page() {
     # $1: page URL
-    $_CURL -sS "$1"
+    $_CURL -sS "$1" || print_error "Cannot get page from $1"
 }
 
 get_file() {
@@ -91,11 +90,12 @@ get_file() {
     type=$(awk -F '/'  '{print $4}' <<< "$1")
 
     if [[ "$type" == "blob" ]]; then
-        local pre post flink fpath upath
+        local pre post flink fname fpath upath
         pre=$(awk -F '/'  '{printf "%s/%s", $2, $3}' <<< "$1")
         post=$(awk -F '/blob/'  '{print $2}' <<< "$1")
         flink="${_GITHUB_URL}/${pre}/raw/${post}"
         fpath="$_SCRIPT_PATH/${post#*/}"
+        fname="$(basename -- "$post")"
         upath="$(dirname "$(get_path_from_url "$_URL")")/"
 
         if [[ ! "$upath" =~ ^\. ]]; then
@@ -105,7 +105,7 @@ get_file() {
         fi
 
         print_info "Downloading $flink"
-        $_WGET -q -P "$path" "$flink" || print_warn "Error occurs when downloading $flink"
+        $_CURL -sSL -o "$path/$fname" "$flink" --create-dirs || print_warn "Error occurs when downloading $flink"
     elif [[  "$type" == "tree" ]]; then
         if [[ "$_RECURSIVE_MODE" == true ]]; then
             path="$_SCRIPT_PATH/$(get_path_from_url "$1")"
