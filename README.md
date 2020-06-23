@@ -2,6 +2,15 @@
 
 > GitHub File Downloader
 
+## Table of Contents
+
+- [Features](#features)
+- [Usage](#usage)
+  - [Examples](#examples)
+    - [Download files in current directory](#download-files-in-current-directory)
+    - [Download all files recursively under each directory](#download-all-files-recursively-under-each-directory)
+- [When you need git-dl.sh, when not?](#when-you-need-git-dlsh-when-not)
+
 ## Features
 
 - Lightweight single-script downloader
@@ -16,11 +25,13 @@ Usage:
 
 Options:
   <url>            GitHub URL
-  -r               optional, recursivly download all files under each directory
+  -r               optional, recursively download all files under each directory
   -h | --help      display this help message
 ```
 
 ### Examples
+
+#### Download files in current directory
 
 - Download files in `cwa-app-android` repository `main` folder:
 
@@ -37,6 +48,8 @@ main
 ├── AndroidManifest.xml
 └── ic_launcher-playstore.png
 ```
+
+#### Download all files recursively under each directory
 
 - Download all files under `Directory Traversal` from `PayloadsAllTheThings` repository
 

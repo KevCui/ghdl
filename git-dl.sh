@@ -7,7 +7,7 @@
 #/
 #/ Options:
 #/   <url>            GitHub URL
-#/   -r               optional, recursivly download all files under each directory
+#/   -r               optional, recursively download all files under each directory
 #/   -h | --help      display this help message
 
 set -e
