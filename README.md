@@ -84,3 +84,7 @@ Directory%20Traversal
 | Download crazy numerous files in a specific folder | [DownGit](https://github.com/MinhasKamal/DownGit) |
 | Download some files in a specific folder           | `git-dl.sh <repo_folder_url>`                     |
 | Download one single file                           | Please hit the `Raw` button                       |
+
+---
+
+<a href="https://www.buymeacoffee.com/kevcui" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" height="60px" width="217px"></a>
