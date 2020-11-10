@@ -123,7 +123,7 @@ list_content() {
     get_page "$1" \
         | grep span \
         | grep js-navigation-open \
-        | grep id= \
+        | grep title= \
         | sed -E 's/.*href="//' \
         | awk -F '">' '{print $1}'
 }
