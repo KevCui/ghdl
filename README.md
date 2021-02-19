@@ -1,4 +1,4 @@
-# ghdl 
+# ghdl
 
 > GitHub File Downloader
 
@@ -77,7 +77,7 @@ Directory%20Traversal
 | -------------------------------------------------- | ------------------------------------------------- |
 | Download entire GitHub repository                  | `git clone --depth 1 <repo_url>`                  |
 | Download crazy numerous files in a specific folder | [DownGit](https://github.com/MinhasKamal/DownGit) |
-| Download some files in a specific folder           | `ghdl.sh <repo_folder_url>`                     |
+| Download some files in a specific folder           | `ghdl.sh <repo_folder_url>`                       |
 | Download one single file                           | Please hit the `Raw` button                       |
 
 ---
