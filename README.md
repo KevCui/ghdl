@@ -36,12 +36,12 @@ Options:
 - Download files in `cwa-app-android` repository `main` folder:
 
 ```bash
-~$ ./git-dl.sh https://github.com/corona-warn-app/cwa-app-android/tree/master/Corona-Warn-App/src/main
-[INFO] Skip directory /corona-warn-app/cwa-app-android/tree/master/Corona-Warn-App/src/main/assets
-[INFO] Skip directory /corona-warn-app/cwa-app-android/tree/master/Corona-Warn-App/src/main/java/de/rki/coronawarnapp
-[INFO] Skip directory /corona-warn-app/cwa-app-android/tree/master/Corona-Warn-App/src/main/res
-[INFO] Downloading https://github.com//corona-warn-app/cwa-app-android/raw/master/Corona-Warn-App/src/main/AndroidManifest.xml
-[INFO] Downloading https://github.com//corona-warn-app/cwa-app-android/raw/master/Corona-Warn-App/src/main/ic_launcher-playstore.png
+~$ ./git-dl.sh https://github.com/corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main
+[INFO] Skip directory /corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main/assets
+[INFO] Skip directory /corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main/java/de/rki/coronawarnapp
+[INFO] Skip directory /corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main/res
+[INFO] Downloading https://github.com//corona-warn-app/cwa-app-android/raw/main/Corona-Warn-App/src/main/AndroidManifest.xml
+[INFO] Downloading https://github.com//corona-warn-app/cwa-app-android/raw/main/Corona-Warn-App/src/main/ic_launcher-playstore.png
 
 ~$ tree main
 main
@@ -64,16 +64,11 @@ main
 ~$ tree Directory%20Traversal
 Directory%20Traversal
 ├── Intruder
-│   ├── deep_traversal.txt
-│   │   └── deep_traversal.txt
-│   ├── directory_traversal.txt
-│   │   └── directory_traversal.txt
-│   ├── dotdotpwn.txt
-│   │   └── dotdotpwn.txt
-│   └── traversals-8-deep-exotic-encoding.txt
-│       └── traversals-8-deep-exotic-encoding.txt
+│  ├── deep_traversal.txt
+│  ├── directory_traversal.txt
+│  ├── dotdotpwn.txt
+│  └── traversals-8-deep-exotic-encoding.txt
 └── README.md
-    └── README.md
 ```
 
 ## When you need git-dl.sh, when not?

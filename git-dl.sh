@@ -87,19 +87,19 @@ get_page() {
 get_file() {
     # $1: file or directory URL
     local type path
-    type=$(awk -F '/'  '{print $4}' <<< "$1")
+    type=$(awk -F '/' '{print $4}' <<< "$1")
 
     if [[ "$type" == "blob" ]]; then
         local pre post flink fname fpath upath
         pre=$(awk -F '/'  '{printf "%s/%s", $2, $3}' <<< "$1")
         post=$(awk -F '/blob/'  '{print $2}' <<< "$1")
         flink="${_GITHUB_URL}/${pre}/raw/${post}"
-        fpath="$_SCRIPT_PATH/${post#*/}"
-        fname="$(basename -- "$post")"
+        fpath="$(dirname "$_SCRIPT_PATH/${post#*/}")"
+        fname="$(basename "$post")"
         upath="$(dirname "$(get_path_from_url "$_URL")")/"
 
         if [[ ! "$upath" =~ ^\. ]]; then
-            path="$(dirname "$fpath" | sed -E 's:'"$upath"'::')"
+            path="$(sed -E 's:'"$upath"'::' <<< "$fpath")"
         else
             path="$fpath"
         fi
@@ -131,7 +131,7 @@ list_content() {
 get_path_from_url() {
     # $1: GitHub URL
     local p
-    p=$(awk -F '/tree/'  '{print $2}' <<< "$1")
+    p=$(awk -F '/tree/' '{print $2}' <<< "$1")
     echo "${p#*/}"
 }
 
@@ -141,7 +141,6 @@ download_content(){
     for u in $(list_content "$1"); do
         get_file "$u"
     done
-
 }
 
 main() {
