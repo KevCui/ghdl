@@ -1,4 +1,4 @@
-# git-dl
+# ghdl 
 
 > GitHub File Downloader
 
@@ -9,7 +9,7 @@
   - [Examples](#examples)
     - [Download files in current directory](#download-files-in-current-directory)
     - [Download all files recursively under each directory](#download-all-files-recursively-under-each-directory)
-- [When you need git-dl.sh, when not?](#when-you-need-git-dlsh-when-not)
+- [When you need ghdl.sh, when not?](#when-you-need-ghdlsh-when-not)
 
 ## Features
 
@@ -21,7 +21,7 @@
 
 ```
 Usage:
-  ./git-dl.sh [-r] <url>
+  ./ghdl.sh [-r] <url>
 
 Options:
   <url>            GitHub URL
@@ -36,7 +36,7 @@ Options:
 - Download files in `cwa-app-android` repository `main` folder:
 
 ```bash
-~$ ./git-dl.sh https://github.com/corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main
+~$ ./ghdl.sh https://github.com/corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main
 [INFO] Skip directory /corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main/assets
 [INFO] Skip directory /corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main/java/de/rki/coronawarnapp
 [INFO] Skip directory /corona-warn-app/cwa-app-android/tree/main/Corona-Warn-App/src/main/res
@@ -54,7 +54,7 @@ main
 - Download all files under `Directory Traversal` from `PayloadsAllTheThings` repository
 
 ```bash
-~$ ./git-dl.sh -r https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Directory%20Traversal
+~$ ./ghdl.sh -r https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Directory%20Traversal
 [INFO] Downloading https://github.com/swisskyrepo/PayloadsAllTheThings/raw/master/Directory%20Traversal/Intruder/deep_traversal.txt
 [INFO] Downloading https://github.com/swisskyrepo/PayloadsAllTheThings/raw/master/Directory%20Traversal/Intruder/directory_traversal.txt
 [INFO] Downloading https://github.com/swisskyrepo/PayloadsAllTheThings/raw/master/Directory%20Traversal/Intruder/dotdotpwn.txt
@@ -71,13 +71,13 @@ Directory%20Traversal
 └── README.md
 ```
 
-## When you need git-dl.sh, when not?
+## When you need ghdl.sh, when not?
 
 | Use case                                           | Option                                            |
 | -------------------------------------------------- | ------------------------------------------------- |
 | Download entire GitHub repository                  | `git clone --depth 1 <repo_url>`                  |
 | Download crazy numerous files in a specific folder | [DownGit](https://github.com/MinhasKamal/DownGit) |
-| Download some files in a specific folder           | `git-dl.sh <repo_folder_url>`                     |
+| Download some files in a specific folder           | `ghdl.sh <repo_folder_url>`                     |
 | Download one single file                           | Please hit the `Raw` button                       |
 
 ---

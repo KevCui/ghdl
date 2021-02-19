@@ -3,7 +3,7 @@
 # GitHub File Downloader
 #
 #/ Usage:
-#/   ./git-dl.sh [-r] <url>
+#/   ./ghdl.sh [-r] <url>
 #/
 #/ Options:
 #/   <url>            GitHub URL
